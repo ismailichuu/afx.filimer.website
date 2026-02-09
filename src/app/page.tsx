@@ -1,7 +1,32 @@
+"use client";
+
 import Reveal from "@/components/Reveal";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLoader(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
+    <>
+      {showLoader && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black text-white">
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex items-center gap-3">
+              <span className="h-3 w-3 animate-bounce rounded-full bg-white" />
+              <span className="h-3 w-3 animate-bounce rounded-full bg-white [animation-delay:120ms]" />
+              <span className="h-3 w-3 animate-bounce rounded-full bg-white [animation-delay:240ms]" />
+            </div>
+            <p className="text-xs uppercase tracking-[0.4em] text-white/70">
+              Loading
+            </p>
+          </div>
+        </div>
+      )}
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.9),_rgba(244,240,232,0.95)_45%,_rgba(229,221,210,1)_100%)] text-[#1f1b16]">
       <div className="pointer-events-none absolute left-[-10%] top-[-5%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,_rgba(184,111,58,0.35),_rgba(184,111,58,0)_70%)] blur-2xl" />
       <div className="pointer-events-none absolute right-[-6%] top-[12%] h-[260px] w-[260px] rounded-full bg-[radial-gradient(circle,_rgba(76,93,108,0.35),_rgba(76,93,108,0)_70%)] blur-2xl" />
@@ -28,9 +53,39 @@ export default function Home() {
               Contact
             </a>
           </nav>
+          <button
+            type="button"
+            className="md:hidden flex h-10 w-10 items-center justify-center rounded-full border border-white/60 text-white/80 transition hover:border-white hover:text-white"
+            aria-label="Open menu"
+            onClick={() => {
+              const menu = document.getElementById("mobile-menu");
+              if (menu) {
+                menu.classList.toggle("hidden");
+              }
+            }}
+          >
+            ☰
+          </button>
          
         </div>
       </header>
+
+      <div
+        id="mobile-menu"
+        className="hidden md:hidden fixed top-20 left-1/2 -translate-x-1/2 z-30 w-[90%] max-w-sm rounded-2xl bg-black/80 backdrop-blur-md p-6 text-white shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+      >
+        <nav className="flex flex-col gap-4 text-base uppercase tracking-[0.2em]">
+          <a className="hover:text-white/70" href="/work">
+            Work
+          </a>
+          <a className="hover:text-white/70" href="/service">
+            Services
+          </a>
+          <a className="hover:text-white/70" href="/contact">
+            Contact
+          </a>
+        </nav>
+      </div>
 
       <main className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-6 pb-24">
         <section className="space-y-10 pt-0">
@@ -226,5 +281,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

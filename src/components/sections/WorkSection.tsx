@@ -2,16 +2,25 @@
 
 import Reveal from "@/components/Reveal";
 import Portal from "@/components/Portal";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type GalleryItem = {
   src: string;
   alt: string;
 };
 
+const optimizeCloudinary = (url: string, width: number) => {
+  const marker = "/image/upload/";
+  if (!url.includes(marker)) return url;
+  return url.replace(marker, `${marker}f_auto,q_auto,w_${width},c_fill/`);
+};
+
 const WorkSection = () => {
   const [showAll, setShowAll] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [loadedCount, setLoadedCount] = useState(0);
+  const loadedSet = useRef<Set<string>>(new Set());
+  const [isMobile, setIsMobile] = useState(false);
   const galleryItems = useMemo<GalleryItem[]>(
     () => [
       { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669951/IMG_9997_xnydn4.webp", alt: "Gallery image 1" },
@@ -41,8 +50,32 @@ const WorkSection = () => {
   );
 
   const visibleItems = showAll ? galleryItems : galleryItems.slice(0, 9);
+  const waitCount = Math.min(visibleItems.length, isMobile ? 4 : 8);
+  const isLoading = loadedCount < waitCount;
   const activeImage =
     activeIndex === null ? null : visibleItems[activeIndex] ?? null;
+
+  useEffect(() => {
+    setLoadedCount(0);
+    loadedSet.current = new Set();
+    const timeout = setTimeout(() => {
+      setLoadedCount(waitCount);
+    }, 6000);
+    return () => clearTimeout(timeout);
+  }, [showAll, visibleItems.length, waitCount]);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 640);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const markLoaded = (src: string) => {
+    if (loadedSet.current.has(src)) return;
+    loadedSet.current.add(src);
+    setLoadedCount((count) => count + 1);
+  };
 
   const openImage = (index: number) => setActiveIndex(index);
   const closeImage = () => setActiveIndex(null);
@@ -74,29 +107,47 @@ const WorkSection = () => {
         </div>
       </Reveal>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative min-h-[260px]">
+        {isLoading && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center rounded-3xl bg-[#f7f2ea]/80 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 animate-bounce rounded-full bg-[#1f1b16]" />
+                <span className="h-2 w-2 animate-bounce rounded-full bg-[#1f1b16] [animation-delay:120ms]" />
+                <span className="h-2 w-2 animate-bounce rounded-full bg-[#1f1b16] [animation-delay:240ms]" />
+              </div>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#7d7467]">
+                Loading gallery
+              </p>
+            </div>
+          </div>
+        )}
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {visibleItems.map((item, index) => (
-          <Reveal
-          key={`${item.alt}-${index}`}
-          className="movie"
-          delayMs={index * 90}
-          >
+          <div key={`${item.alt}-${index}`}>
             <button
               type="button"
-              className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[#dbcbb7] bg-[#f7f2ea] shadow-[0_18px_45px_rgba(31,27,22,0.08)] transition hover:-translate-y-1"
+              className="group relative h-56 w-full overflow-hidden rounded-2xl border border-[#dbcbb7] bg-[#f7f2ea] shadow-[0_18px_45px_rgba(31,27,22,0.08)] transition hover:-translate-y-1 sm:h-auto sm:aspect-[4/5]"
               onClick={() => openImage(index)}
               aria-label={`Open ${item.alt}`}
             >
               <img
                 alt={item.alt}
-                src={item.src}
+                src={optimizeCloudinary(item.src, 800)}
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                loading={index < 3 ? "eager" : "lazy"}
+                loading={index < waitCount ? "eager" : "lazy"}
                 decoding="async"
+                onLoad={() => {
+                  if (index < waitCount) markLoaded(item.src);
+                }}
+                onError={() => {
+                  if (index < waitCount) markLoaded(item.src);
+                }}
               />
             </button>
-          </Reveal>
+          </div>
         ))}
+      </div>
       </div>
 
       <div className="flex justify-center">
@@ -181,7 +232,7 @@ const WorkSection = () => {
             >
               <img
                 alt={activeImage.alt}
-                src={activeImage.src}
+                src={optimizeCloudinary(activeImage.src, 1600)}
                 className="max-h-[80vh] max-w-[85vw] object-contain"
                 loading="eager"
                 decoding="async"
