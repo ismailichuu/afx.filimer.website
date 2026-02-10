@@ -90,7 +90,7 @@ export default function Home() {
         >
           <nav className="flex flex-col gap-4 text-base uppercase tracking-[0.2em]">
             <a className="hover:text-white/70" href="/work">
-              Work
+              Gallery
             </a>
             <a className="hover:text-white/70" href="/service">
               Services
@@ -280,7 +280,6 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <span>Chat on WhatsApp</span>
                     <svg
                       aria-hidden="true"
                       viewBox="0 0 24 24"
@@ -289,6 +288,7 @@ export default function Home() {
                     >
                       <path d="M12 2C6.48 2 2 6.26 2 11.5c0 2.03.78 3.89 2.06 5.33L3 22l5.38-1.41A10.3 10.3 0 0 0 12 21c5.52 0 10-4.26 10-9.5S17.52 2 12 2zm0 17.2c-1.32 0-2.57-.32-3.68-.9l-.26-.13-3.2.84.85-3.1-.17-.3A7.74 7.74 0 0 1 4.27 11.5c0-4.22 3.5-7.65 7.73-7.65 4.23 0 7.73 3.43 7.73 7.65S16.23 19.2 12 19.2zm4.28-5.7c-.23-.11-1.36-.68-1.57-.76-.21-.08-.36-.11-.51.11-.15.23-.59.76-.73.92-.13.15-.26.17-.49.06-.23-.11-.96-.36-1.83-1.15-.67-.6-1.12-1.34-1.25-1.57-.13-.23-.01-.35.1-.47.1-.1.23-.26.34-.4.11-.14.15-.23.23-.39.08-.16.04-.3-.02-.41-.06-.11-.51-1.25-.7-1.71-.18-.47-.37-.4-.51-.41h-.43c-.16 0-.41.06-.62.3-.21.23-.81.8-.81 1.94 0 1.14.84 2.24.96 2.39.12.16 1.64 2.53 3.98 3.55.56.24 1 .39 1.34.5.56.18 1.06.16 1.46.1.45-.07 1.32-.55 1.5-1.08.18-.53.18-.99.13-1.08-.06-.09-.21-.15-.44-.26Z" />
                     </svg>
+                    <span>Chat on WhatsApp</span>
                   </a>
                   <a
                     className="rounded-full border border-[#1f1b16] px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.3em] text-[#1f1b16] transition hover:bg-[#1f1b16] hover:text-[#f4f0e8]"
@@ -325,6 +325,8 @@ export default function Home() {
                   className="text-[#7d7467] transition hover:text-[#1f1b16]"
                   href="https://www.instagram.com/afx.filmer/?hl=en"
                   aria-label="Instagram"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <svg
                     aria-hidden="true"
@@ -339,6 +341,8 @@ export default function Home() {
                   className="text-[#7d7467] transition hover:text-[#1f1b16]"
                   href="https://www.youtube.com/@AfxFilmer"
                   aria-label="YouTube"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <svg
                     aria-hidden="true"

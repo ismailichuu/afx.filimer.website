@@ -39,6 +39,8 @@ export default function ServicePage() {
                 className="text-[#7d7467] transition hover:text-[#1f1b16]"
                 href="https://www.instagram.com/afx.filmer/?hl=en"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noreferrer"
               >
                   <svg
                     aria-hidden="true"
@@ -53,6 +55,8 @@ export default function ServicePage() {
                 className="text-[#7d7467] transition hover:text-[#1f1b16]"
                 href="https://www.youtube.com/@AfxFilmer"
                 aria-label="YouTube"
+                target="_blank"
+                rel="noreferrer"
               >
                   <svg
                     aria-hidden="true"

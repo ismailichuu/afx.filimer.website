@@ -112,3 +112,7 @@ body {
 .fade-up {
   animation: fadeUp 0.8s ease forwards;
 }
+
+button {
+  cursor: pointer;
+}
