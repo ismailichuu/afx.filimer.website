@@ -117,33 +117,6 @@ export default function ContactPage() {
                   Visit Instagram
                 </a>
               </div>
-              <div className="rounded-[10px] border border-[#dbcbb7] bg-[#f7f2ea] shadow-[0_16px_35px_rgba(31,27,22,0.08)]">
-                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#dbcbb7] px-5 py-4">
-                  <div className="space-y-1 text-sm text-[#5f564a]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#7d7467]">
-                      Visit Our Office
-                    </p>
-                    <p className="font-semibold text-[#1f1b16]">AFX filmer</p>
-                    <p>Kalady, Kerala, India</p>
-                  </div>
-                  <a
-                    className="rounded-full border border-[#1f1b16] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#1f1b16] transition hover:bg-[#1f1b16] hover:text-[#f4f0e8]"
-                    href="https://www.google.com/maps/place/AFX+filmer/@10.1705657,76.4269863,17z/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Directions
-                  </a>
-                </div>
-                <iframe
-                  title="AFX filmer location on Google Maps"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.124115158459!2d76.42698627407977!3d10.170565670078535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080782a4b3d095%3A0xc43d625172da3f6!2sAFX%20filmer!5e0!3m2!1sen!2sin!4v1770756823489!5m2!1sen!2sin"
-                  className="h-[320px] w-full border-0 md:h-[380px]"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-              </div>
             </div>
             <form className="flex flex-col gap-5 rounded-[28px] border border-[#dbcbb7] bg-[#f7f2ea] p-6" onSubmit={handleSubmit} noValidate>
               {successMessage ? (
@@ -249,6 +222,38 @@ export default function ContactPage() {
                 </button>
               </div>
             </form>
+          </section>
+        </Reveal>
+        <Reveal className="movie">
+          <section className="rounded-[36px] border border-[#dbcbb7] bg-[#f7f2ea] shadow-[0_25px_70px_rgba(31,27,22,0.1)]">
+            <div className="flex flex-col gap-4 border-b border-[#dbcbb7] px-8 py-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#7d7467]">
+                Visit Our Office
+              </p>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="space-y-2 text-sm text-[#5f564a]">
+                  <p className="font-semibold text-[#1f1b16]">AFX filmer</p>
+                  <p>Kalady, Kerala, India</p>
+                  <p>Open by appointment</p>
+                </div>
+                <a
+                  className="rounded-full border border-[#1f1b16] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#1f1b16] transition hover:bg-[#1f1b16] hover:text-[#f4f0e8]"
+                  href="https://www.google.com/maps/place/AFX+filmer/@10.1705657,76.4269863,17z/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Get Directions
+                </a>
+              </div>
+            </div>
+            <iframe
+              title="AFX filmer location on Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.124115158459!2d76.42698627407977!3d10.170565670078535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080782a4b3d095%3A0xc43d625172da3f6!2sAFX%20filmer!5e0!3m2!1sen!2sin!4v1770756823489!5m2!1sen!2sin"
+              className="h-[320px] w-full border-0 md:h-[420px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </section>
         </Reveal>
       </main>
