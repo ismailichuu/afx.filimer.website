@@ -23,31 +23,36 @@ const WorkSection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const galleryItems = useMemo<GalleryItem[]>(
     () => [
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669951/IMG_9997_xnydn4.webp", alt: "Gallery image 1" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669950/IMG_9910_jrwswz.webp", alt: "Gallery image 2" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669938/IMG_8515_ogryvv.webp", alt: "Gallery image 3" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669937/IMG_7249_v8jkpm.webp", alt: "Gallery image 4" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669936/IMG_7156_cim8gb.webp", alt: "Gallery image 5" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669936/IMG_7157_gfmsxl.webp", alt: "Gallery image 6" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669932/IMG_7145_swbxm9.webp", alt: "Gallery image 7" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669920/IMG_6424_rw4y6k.webp", alt: "Gallery image 8" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669923/IMG_6930_mohiog.webp", alt: "Gallery image 9" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669921/IMG_6782_xw7l3v.webp", alt: "Gallery image 10" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669921/IMG_0009_tugjwd.webp", alt: "Gallery image 11" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669826/4_5_lvzb4p.webp", alt: "Gallery image 13" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669812/Everything_s_better_when_we_re_together_yfurdz.webp", alt: "Gallery image 14" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669811/Everything_s_better_when_we_re_together_Instagram_Post_45_nddp23.webp", alt: "Gallery image 15" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669329/1_darijl.webp", alt: "Gallery image 16" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669327/2_7_g9x9bg.webp", alt: "Gallery image 17" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669328/2_gil8b5.webp", alt: "Gallery image 18" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669327/1_3_dhm8yi.webp", alt: "Gallery image 19" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669326/1_2_iutju4.webp", alt: "Gallery image 20" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770668869/WBW02494_jxscza.webp", alt: "Gallery image 21" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770668867/DSC_7532_vu95v2.webp", alt: "Gallery image 22" },
-      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770668858/DSC_4078_fisaqs.webp", alt: "Gallery image 23" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770668858/DSC_4078_fisaqs.webp", alt: "Gallery image 26" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770668867/DSC_7532_vu95v2.webp", alt: "Gallery image 25" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770668869/WBW02494_jxscza.webp", alt: "Gallery image 24" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669920/IMG_6614_phdtki.webp", alt: "Gallery image 23" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669326/1_2_iutju4.webp", alt: "Gallery image 22" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669812/WBW01298_q46swb.webp", alt: "Gallery image 21" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669327/1_3_dhm8yi.webp", alt: "Gallery image 20" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669328/2_gil8b5.webp", alt: "Gallery image 19" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669327/2_7_g9x9bg.webp", alt: "Gallery image 18" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669329/1_darijl.webp", alt: "Gallery image 17" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669811/Everything_s_better_when_we_re_together_Instagram_Post_45_nddp23.webp", alt: "Gallery image 16" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669812/Everything_s_better_when_we_re_together_yfurdz.webp", alt: "Gallery image 15" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669826/4_5_lvzb4p.webp", alt: "Gallery image 14" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669921/IMG_0009_tugjwd.webp", alt: "Gallery image 13" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669921/IMG_6782_xw7l3v.webp", alt: "Gallery image 12" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669923/IMG_6930_mohiog.webp", alt: "Gallery image 11" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669920/IMG_6424_rw4y6k.webp", alt: "Gallery image 10" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669932/IMG_7145_swbxm9.webp", alt: "Gallery image 9" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669936/IMG_7157_gfmsxl.webp", alt: "Gallery image 8" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669936/IMG_7156_cim8gb.webp", alt: "Gallery image 7" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669937/IMG_7249_v8jkpm.webp", alt: "Gallery image 6" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669938/IMG_8515_ogryvv.webp", alt: "Gallery image 5" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669950/IMG_9910_jrwswz.webp", alt: "Gallery image 4" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770709476/3_v5ryvx.webp", alt: "Gallery image 3" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770709478/4_2_mf7v3n.webp", alt: "Gallery image 2" },
+      { src: "https://res.cloudinary.com/dei9lxras/image/upload/v1770669951/IMG_9997_xnydn4.webp", alt: "Gallery image 1" }
     ],
     []
   );
+
 
   const visibleItems = showAll ? galleryItems : galleryItems.slice(0, 9);
   const waitCount = Math.min(visibleItems.length, isMobile ? 4 : 8);
@@ -123,31 +128,31 @@ const WorkSection = () => {
           </div>
         )}
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {visibleItems.map((item, index) => (
-          <div key={`${item.alt}-${index}`}>
-            <button
-              type="button"
-              className="group relative h-56 w-full overflow-hidden rounded-2xl border border-[#dbcbb7] bg-[#f7f2ea] shadow-[0_18px_45px_rgba(31,27,22,0.08)] transition hover:-translate-y-1 sm:h-auto sm:aspect-[4/5]"
-              onClick={() => openImage(index)}
-              aria-label={`Open ${item.alt}`}
-            >
-              <img
-                alt={item.alt}
-                src={optimizeCloudinary(item.src, 800)}
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                loading={index < waitCount ? "eager" : "lazy"}
-                decoding="async"
-                onLoad={() => {
-                  if (index < waitCount) markLoaded(item.src);
-                }}
-                onError={() => {
-                  if (index < waitCount) markLoaded(item.src);
-                }}
-              />
-            </button>
-          </div>
-        ))}
-      </div>
+          {visibleItems.map((item, index) => (
+            <div key={`${item.alt}-${index}`}>
+              <button
+                type="button"
+                className="group relative h-56 w-full overflow-hidden rounded-2xl border border-[#dbcbb7] bg-[#f7f2ea] shadow-[0_18px_45px_rgba(31,27,22,0.08)] transition hover:-translate-y-1 sm:h-auto sm:aspect-[4/5]"
+                onClick={() => openImage(index)}
+                aria-label={`Open ${item.alt}`}
+              >
+                <img
+                  alt={item.alt}
+                  src={optimizeCloudinary(item.src, 800)}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  loading={index < waitCount ? "eager" : "lazy"}
+                  decoding="async"
+                  onLoad={() => {
+                    if (index < waitCount) markLoaded(item.src);
+                  }}
+                  onError={() => {
+                    if (index < waitCount) markLoaded(item.src);
+                  }}
+                />
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="flex justify-center">

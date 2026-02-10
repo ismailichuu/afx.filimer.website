@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "afx.filimer — Photography Portfolio",
   description:
     "A curated photography portfolio for afx.filimer focused on cinematic brand stories and editorial campaigns.",
+  icons: {
+    icon: "/AFX LOGO.PNG",
+  },
 };
 
 export default function RootLayout({
@@ -33,3 +36,4 @@ export default function RootLayout({
     </html>
   );
 }
+
