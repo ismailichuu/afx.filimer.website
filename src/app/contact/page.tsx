@@ -55,7 +55,7 @@ export default function ContactPage() {
 
       <main className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pb-24">
         <Reveal className="movie">
-          <section className="grid items-start gap-8 rounded-[36px] border border-[#dbcbb7] bg-[#efe7dc] p-10 shadow-[0_25px_70px_rgba(31,27,22,0.1)] lg:grid-cols-[1.05fr_0.95fr]">
+          <section className="grid items-start gap-8 rounded-[36px] border border-[#dbcbb7] bg-[#efe7dc] p-4 sm:p-6 lg:p-10 shadow-[0_25px_70px_rgba(31,27,22,0.1)] lg:grid-cols-[1.05fr_0.95fr]">
             <div className="space-y-6">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#7d7467]">
                 Contact
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 </a>
               </div>
             </div>
-            <form className="flex flex-col gap-5 rounded-[28px] border border-[#dbcbb7] bg-[#f7f2ea] p-6" onSubmit={handleSubmit} noValidate>
+            <form className="w-full justify-self-stretch flex flex-col gap-5 rounded-[28px] border border-[#dbcbb7] bg-[#f7f2ea] p-4 sm:p-6" onSubmit={handleSubmit} noValidate>
               {successMessage ? (
                 <div className="flex items-start gap-3 rounded-2xl border border-[#9ccc9c] bg-[#e8f5e9] px-4 py-3 text-sm text-[#2e5e3a] shadow-[0_12px_30px_rgba(46,94,58,0.12)]">
                   <svg
@@ -304,3 +304,6 @@ export default function ContactPage() {
     </div>
   );
 }
+
+
+
