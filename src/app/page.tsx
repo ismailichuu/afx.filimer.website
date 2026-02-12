@@ -128,7 +128,7 @@ export default function Home() {
             <Reveal className="movie">
               <div className="flex flex-wrap items-center justify-between gap-6 rounded-full border border-[#dbcbb7] bg-[#f7f2ea] px-6 py-4 text-xs uppercase tracking-[0.4em] text-[#7d7467] shadow-[0_20px_60px_rgba(31,27,22,0.08)]">
                 <span>Dubai</span>
-                <span>Sinapore</span>
+                <span>Singapore</span>
                 <span>India</span>
               </div>
             </Reveal>
